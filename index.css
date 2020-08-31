@@ -1,0 +1,179 @@
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #012340;
+    color: #ffffff;
+    font-family: "roboto-regular";
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+  }
+  @media (min-width: 992px) {
+    body {
+      font-size: 14px;
+    }
+  }
+    
+  ul, li {
+    list-style: none;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: none;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #09131e;
+    border-radius: 5px;
+  }
+  
+  header {
+    margin-bottom: 15px;
+  }
+  header .left-items, header .right-items {
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 0px;
+    margin: auto;
+  }
+  @media (min-width: 600px) {
+    header .left-items, header .right-items {
+      width: 49.7%;
+      display: inline-block;
+    }
+  }
+  header img.logo {
+    /* .fab{ */
+    vertical-align: middle;
+    width: 23px;
+    height: 23px;
+  }
+  @media (min-width: 992px) {
+    header img.logo {
+        /* .fab { */
+      width: 24px;
+      height: 24px;
+    }
+  }
+  header nav, header ul, header li {
+    display: inline;
+  }
+  header nav ul li {
+    margin-left: 15px;
+    font-family: "roboto-light";
+    font-weight: 300;
+    cursor: pointer;
+  }
+  header nav ul li:hover {
+    color: #d2d2d2;
+  }
+  header nav ul li.active {
+    font-weight: bold;
+    font-family: "roboto-bold";
+  }
+  header .right-items {
+    text-align: center;
+  }
+  header .right-items input {
+    padding: 10px 15px;
+    width: 100%;
+    height: 37px;
+    border: 2px solid #011527;
+    background-color: #012340;
+    outline: #011527;
+    border-radius: 5px;
+    color: #ffffff;
+  }
+  header .right-items input::placeholder {
+    color: #ffffff;
+  }
+  @media (min-width: 992px) {
+    header .right-items input {
+      width: 316px;
+    }
+  }
+  header .right-items label {
+    position: absolute;
+    margin-top: 7px;
+    right: 35px;
+    cursor: pointer;
+  }
+  header .right-items label .icons {
+    width: 20px;
+    height: 20px;
+  }
+  @media (min-width: 992px) {
+    header .right-items {
+      text-align: right;
+    }
+  }
+  .wrap {
+      width: 100%;
+      margin: auto;
+      margin-top: 15px;
+      /* box-shadow: -4px 4px 5px 0 #000; */
+      cursor: pointer; 
+      /* transition: 1s; */
+  }
+  .card{
+      transition: 0.4s;
+      /* box-shadow: 0 4px 8px 0 rgb(0,0,0,0.6); */
+      width: 30px;
+      /* background: #fff; */
+      float: left;
+     width: 272px; 
+     margin-top: 10px; 
+  }
+  .card img{
+    /* height: 368px; */
+    width: 245px;
+  }
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgb(0,0,0,0.6);
+}
+h3{
+  text-align: center;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 80px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 166px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}

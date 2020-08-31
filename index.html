@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Movie list" />
+
+  <title>Movies</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <header>
+    <div class="left-items">
+      <img src="http://image.tmdb.org/t/p/w45/l5zW8jjmQOCx2dFmvnmbYmqoBmL.png" alt="logo" class="logo" />
+      <nav>
+        <ul class="tab">
+          <li data-type="popular" data-url="Popular" class="tablinks" id="Popular" onclick="Movies('Popular')">Popular</li>
+          <li data-type="upcoming" data-url="Upcoming" class="tablinks" id="Upcoming" onclick="Movies('Upcoming')">Upcoming</li>
+        </ul>
+      </nav>
+    </div>
+    <div class="right-items">
+      <input type="text" name="search" id="searchbar" placeholder="Search" onkeyup="search(this.element)"/>
+      <label for="search"><img src="Icons/search.svg" class="icons" alt="search" /></label>
+    </div>
+  </header>
+
+  <div id="wrap">
+  
+
+  </div>
+ <!--The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close"></span>
+      <div id="getmodal">
+        
+      </div>
+    </div>
+  
+  </div> 
+ 
+
+  <script src="js/handlebars-v4.7.6.js" type="text/javascript"></script>
+  <script src="js/jquery-3.5.1.js"></script>
+  <!-- <script src="js/underscore.js"></script> -->
+  <!-- <script src="js/backbone.js"></script> -->
+  <script src="js/main.js" type="text/javascript"></script>
+</body>
+
+</html>
