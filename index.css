@@ -162,7 +162,7 @@ h3{
 
 /* The Close Button */
 .close {
-  color: #000000;
+  color: red;
   float: right;
   padding-right: 20px;
   padding-top: 10px;
