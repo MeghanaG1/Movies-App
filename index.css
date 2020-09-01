@@ -158,17 +158,20 @@ h3{
 .modal-content {
   background-color: #fefefe;
   margin: auto;
-  padding: 166px;
   border: 1px solid #888;
   width: 80%;
 }
 
 /* The Close Button */
 .close {
-  color: #aaaaaa;
+  color: #000000;
   float: right;
+  padding-right: 20px;
+  padding-top: 10px;
   font-size: 28px;
   font-weight: bold;
+  position: fixed;
+    right: 150px;
 }
 
 .close:hover,
@@ -176,4 +179,14 @@ h3{
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+.detailedmovie img{
+  width: 100%;
+}
+.moviedata {
+  color: #000;
+  padding: 40px;
+}
+.entry {
+  text-align: center;
 }

@@ -21,7 +21,7 @@ function Movies(coming) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(coming).className = "tablinks active";
-    document.getElementById("wrap").innerHTML = "<h3>Loading...</h3>";
+   // document.getElementById("wrap").innerHTML = "<h3>Loading...</h3>";
 }
 Movies("Popular");
 
@@ -45,7 +45,7 @@ function callApi(url) {
                         let imgsize = "w500";
                         let imgurl = baseurl + imgsize + data.results[i].poster_path;
                         // document.getElementById("wrap").innerHTML = '<div class="card"><img src=' + imgurl + ' alt="messi"></div>';
-                        value += '<div class="card 123" id="imgbtn" onclick="btnimg('+data.results[i].id+')"><img src=' + imgurl + '  alt="movies"></div>';
+                        value += '<div class="card 123" id="imgbtn" onclick="btnimg(' + data.results[i].id + ')"><img src=' + imgurl + '  alt="movies"></div>';
 
                     }
 
@@ -86,7 +86,7 @@ function getApi(url) {
                         let imgsize = "w500";
                         let imgurl = baseurl + imgsize + data.results[i].poster_path;
                         // document.getElementById("wrap").innerHTML = '<div class="card"><img src=' + imgurl + ' alt="messi"></div>';
-                        val += '<div class="card 321" id="imgbtn" onclick="btnimg('+data.results[i].id+')"><img src=' + imgurl + '  alt="movies"></div>';
+                        val += '<div class="card 321" id="imgbtn" onclick="btnimg(' + data.results[i].id + ')"><img src=' + imgurl + '  alt="movies"></div>';
 
                     }
 
@@ -98,20 +98,12 @@ function getApi(url) {
             console.log('Fetch Error :-S', err);
         });
 }
-// var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-//var btn = document.getElementById("imgbtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
+/*movie details*/
 function btnimg(content) {
     console.log(content);
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
-    fetch('https://api.themoviedb.org/3/movie/703771?api_key=7826b828b8971b2adc0e3801578e24c7&language=en-US')
+    fetch('https://api.themoviedb.org/3/movie/' + content + '?api_key=7826b828b8971b2adc0e3801578e24c7&language=en-US')
         .then(
             function (response) {
                 if (response.status !== 200) {
@@ -124,16 +116,17 @@ function btnimg(content) {
                 response.json().then(function (data) {
 
                     console.log(data);
-                    for (let i = 0; i < data.results.length; i++) {
-                        console.log(data.results[i].poster_path);
+                    if (data.backdrop_path) {
                         const baseurl = "http://image.tmdb.org/t/p/";
                         let imgsize = "w500";
-                        let imgurl = baseurl + imgsize + data.results[i].poster_path;
+                        let imgurl = baseurl + imgsize + data.backdrop_path;
+                        let para = data.overview;
+                        
                         // document.getElementById("wrap").innerHTML = '<div class="card"><img src=' + imgurl + ' alt="messi"></div>';
-                        val += '<div class="detailedmovie"><img src=' + imgurl + '  alt="movies"></div>';
-
+                        val += '<div class="detailedmovie"><img src=' + imgurl + '  alt="movies"><p class="moviedata">'+para+'</p></div>';
                     }
-                    
+
+
 
                     document.getElementById("getmodal").innerHTML = val;
                 });
@@ -145,15 +138,20 @@ function btnimg(content) {
 
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
+
+
+function closemodal() {
+    
+    var modal = document.getElementById("myModal");
     modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+var context = {
+    "name" : "Loading..."
+  }
+  
+  var templateScript = Handlebars.templates['modal.hbs'];
 
+  console.log("-->" ,templateScript(context));
+  
+  $("#demos").append(templateScript(context));
