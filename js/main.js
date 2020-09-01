@@ -21,7 +21,6 @@ function Movies(coming) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(coming).className = "tablinks active";
-   // document.getElementById("wrap").innerHTML = "<h3>Loading...</h3>";
 }
 Movies("Popular");
 
@@ -35,7 +34,6 @@ function callApi(url) {
                     return;
                 }
                 let value = '';
-                // Examine the text in the response
                 response.json().then(function (data) {
 
                     console.log(data);
@@ -44,8 +42,7 @@ function callApi(url) {
                         const baseurl = "http://image.tmdb.org/t/p/";
                         let imgsize = "w500";
                         let imgurl = baseurl + imgsize + data.results[i].poster_path;
-                        // document.getElementById("wrap").innerHTML = '<div class="card"><img src=' + imgurl + ' alt="messi"></div>';
-                        value += '<div class="card 123" id="imgbtn" onclick="btnimg(' + data.results[i].id + ')"><img src=' + imgurl + '  alt="movies"></div>';
+                        value += '<div class="card" id="imgbtn" onclick="btnimg(' + data.results[i].id + ')"><img src=' + imgurl + '  alt="movies"></div>';
 
                     }
 
@@ -76,7 +73,6 @@ function getApi(url) {
                     return;
                 }
                 let val = '';
-                // Examine the text in the response
                 response.json().then(function (data) {
 
                     console.log(data);
@@ -85,8 +81,7 @@ function getApi(url) {
                         const baseurl = "http://image.tmdb.org/t/p/";
                         let imgsize = "w500";
                         let imgurl = baseurl + imgsize + data.results[i].poster_path;
-                        // document.getElementById("wrap").innerHTML = '<div class="card"><img src=' + imgurl + ' alt="messi"></div>';
-                        val += '<div class="card 321" id="imgbtn" onclick="btnimg(' + data.results[i].id + ')"><img src=' + imgurl + '  alt="movies"></div>';
+                        val += '<div class="card" id="imgbtn" onclick="btnimg(' + data.results[i].id + ')"><img src=' + imgurl + '  alt="movies"></div>';
 
                     }
 
@@ -112,7 +107,6 @@ function btnimg(content) {
                     return;
                 }
                 let val = '';
-                // Examine the text in the response
                 response.json().then(function (data) {
 
                     console.log(data);
@@ -121,8 +115,6 @@ function btnimg(content) {
                         let imgsize = "w500";
                         let imgurl = baseurl + imgsize + data.backdrop_path;
                         let para = data.overview;
-                        
-                        // document.getElementById("wrap").innerHTML = '<div class="card"><img src=' + imgurl + ' alt="messi"></div>';
                         val += '<div class="detailedmovie"><img src=' + imgurl + '  alt="movies"><p class="moviedata">'+para+'</p></div>';
                     }
 
